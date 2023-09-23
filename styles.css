@@ -4,7 +4,7 @@ background-color: rgb(95, 118, 203);}
 margin: 30px auto;} 
 .weather-app {
     padding: 20px;
-    border: 1px splid #dadded;
+    border: 1px solid #0a0d1d;
 }
 .overview{
 margin-top: 20px;
@@ -59,3 +59,6 @@ li {
     margin-top: 20px;
     text-align: center;
 }
+.link{ text-align: center;
+margin: 0 auto;
+display: block;}
