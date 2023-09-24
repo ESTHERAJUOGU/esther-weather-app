@@ -31,6 +31,7 @@ let dateElement = document.querySelector("#date");
 dateElement.innerHTML = formatDate(response.data.dt*1000);
 let iconElement = document.querySelector("#icon");
 iconElement.innerHTML = `https:/openweathermap.org/img/wn/04d@2x.png`;
+celciusTemperature = response.data.main.temp;
 }
 
 function search(city){
@@ -53,6 +54,14 @@ function displayFahrinheitTemperature(event){
     alert(fahrinheitTemperature);
     let temperatureElement = document.querySelector("#temperature");
     temperatureElement.innerHTML=Math.round(fahrinheitTemperature);
+}
+
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  let celcius = null;
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = celciusTemperature;
 }
 
 search("New York");
