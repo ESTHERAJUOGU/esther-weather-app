@@ -32,13 +32,32 @@ dateElement.innerHTML = formatDate(response.data.dt*1000);
 let iconElement = document.querySelector("#icon");
 iconElement.innerHTML = `https:/openweathermap.org/img/wn/04d@2x.png`;
 }
+
 function search(city){
     let apiKey = b3b7f0a3ff1dbcc14114dfae05acef2f;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&unit=metric`;
     console.log("apiUrl");
     axios.get(apiUrl).then(displayTemperature);
 }
-let apiKey = b3b7f0a3ff1dbcc14114dfae05acef2f;
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&unit=metric`;
-console.log("apiUrl");
-axios.get(apiUrl).then(displayTemperature);
+
+function handleSubmit(event){
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    console.log(cityInputElement.value);
+    search(cityInputElement.value);
+}
+
+function displayFahrinheitTemperature(event){
+    event.preventDefault();
+    let fahrinheitTemperature=(14*9/5)+32;
+    alert(fahrinheitTemperature);
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML=Math.round(fahrinheitTemperature);
+}
+
+search("New York");
+ let form = document.querySelector("#search-form");
+ form.addEventListener("submit",handleSubmit);
+
+let fahrinheitLink = document.querySelector("#sfahrinheit-link");
+fahrinheitLink.addEventListener("click",displayFahrinheitTemperature);
